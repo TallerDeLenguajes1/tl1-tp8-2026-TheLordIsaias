@@ -103,8 +103,11 @@ Tarea buscarTareaEnListaPorID(List<Tarea> tareas)
 
 void completarTarea(List<Tarea> listaOrigen, List<Tarea> listaDestino, Tarea tarea)
 {
-    listaDestino.Add(tarea);
-    listaOrigen.Remove(tarea);
+    if(tarea != null)
+    {
+        listaDestino.Add(tarea);
+        listaOrigen.Remove(tarea);
+    }    
 }
 
 Tarea buscarTareaEnListaPorDescripcion(List<Tarea> tareas)
@@ -125,5 +128,12 @@ Tarea buscarTareaEnListaPorDescripcion(List<Tarea> tareas)
 
 void mostrarTarea(Tarea tarea)
 {
-    Console.WriteLine($"------------------------------\n- ID Tarea: #{tarea.TareaID}\n- Descripcion de la Tarea: {tarea.Descripcion}\n- Duracion tarea: {tarea.Duracion}");
+    if(tarea != null)
+    {
+        Console.WriteLine($"------------------------------\n- ID Tarea: #{tarea.TareaID}\n- Descripcion de la Tarea: {tarea.Descripcion}\n- Duracion tarea: {tarea.Duracion}");
+    } else
+    {
+        Console.WriteLine("No se encontro la Tarea");
+    }
+    
 }
